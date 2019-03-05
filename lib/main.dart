@@ -26,38 +26,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xCC000000),
       body: SafeArea(
-        child: Container(
-          color: Color(0xCC000000),
-          padding: const EdgeInsets.all(16),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              Column(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            BalanceCard('~18,800'),
+            TransactionsTitle(),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 15),
                 children: <Widget>[
-                  BalanceCard('~18,800'),
-                  TransactionsTitle(),
-                  Expanded(
-                    child: ListView(
-                      children: <Widget>[
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                        TransactionCard('12,794 BYN'),
-                      ],
-                    ),
-                  )
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
+                  TransactionCard('12,794 BYN'),
                 ],
               ),
-              Actions(),
-            ],
-          ),
+            ),
+            Actions(),
+          ],
         ),
       ),
     );
@@ -74,6 +68,11 @@ class BalanceCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 112,
+      margin: EdgeInsets.only(
+        left: 14.0,
+        right: 14.0,
+        top: MediaQuery.of(context).size.height * 0.005,
+      ),
       child: Card(
         color: Colors.white24,
         child: Container(
@@ -114,7 +113,7 @@ class TransactionsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+      margin: EdgeInsets.fromLTRB(30, 20, 26, 0),
       child: Text(
         'TRANSACTIONS',
         style: TextStyle(color: Colors.white54),
@@ -130,15 +129,18 @@ class TransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white24,
-      child: ListTile(
-        leading: Icon(
-          Icons.add_circle_outline,
-          color: Colors.yellow[600],
+    return Container(
+      margin: EdgeInsets.fromLTRB(14.0, 4.0, 14.0, 4.0),
+      child: Card(
+        color: Colors.white24,
+        child: ListTile(
+          leading: Icon(
+            Icons.add_circle_outline,
+            color: Colors.yellow[600],
+          ),
+          title: Text('Received'),
+          subtitle: Text(amount),
         ),
-        title: Text('Received'),
-        subtitle: Text(amount),
       ),
     );
   }
