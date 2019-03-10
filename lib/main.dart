@@ -34,26 +34,30 @@ class _HomePageState extends State<HomePage> {
             BalanceCard('~18,800'),
             TransactionsTitle(),
             Expanded(
-              child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 15),
-                children: <Widget>[
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                  TransactionCard('12,794 BYN'),
-                ],
-              ),
+              child: _buildListView(),
             ),
             Actions(),
           ],
         ),
       ),
+    );
+  }
+
+  ListView _buildListView() {
+    return ListView(
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 15),
+      children: <Widget>[
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+        TransactionCard('12,794 BYN'),
+      ],
     );
   }
 }
@@ -154,10 +158,9 @@ class Actions extends StatelessWidget {
     return Container(
       color: Colors.black54,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          ActionButton('Receive'),
-          ActionButton('Send'),
+          Expanded(child: ActionButton('Receive')),
+          Expanded(child: ActionButton('Send')),
         ],
       ),
     );
@@ -171,12 +174,22 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      color: Colors.yellow,
-      child: Text(action),
-      onPressed: () {
-        // TODO
-      },
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        // shadows
+      ),
+      height: 56,
+      margin: EdgeInsets.fromLTRB(14, 8, 14, 8),
+      child: FlatButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        color: Colors.yellow,
+        child: Text(action, maxLines: 1),
+        splashColor: Colors.transparent,
+        onPressed: () {
+          // TODO
+        },
+      ),
     );
   }
 }
