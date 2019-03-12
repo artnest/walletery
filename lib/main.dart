@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './ui/home_page.dart';
+import './ui/util/routes.dart';
 
 void main() => runApp(WalleteryApp());
 
@@ -12,7 +13,21 @@ class WalleteryApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      initialRoute: '/home',
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case '/':
+            return NoTransitionRoute(
+              builder: (_) => HomePage(),
+              settings: settings,
+            );
+          case '/home':
+            return NoTransitionRoute(
+              builder: (_) => HomePage(),
+              settings: settings,
+            );
+        }
+      },
     );
   }
 }

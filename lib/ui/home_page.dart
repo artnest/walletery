@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './send/send_sheet.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -144,8 +146,22 @@ class Actions extends StatelessWidget {
       color: Colors.black54,
       child: Row(
         children: <Widget>[
-          Expanded(child: ActionButton('Receive')),
-          Expanded(child: ActionButton('Send')),
+          Expanded(
+            child: ActionButton(
+              'Receive',
+              onPressed: () {
+                // TODO
+              },
+            ),
+          ),
+          Expanded(
+            child: ActionButton(
+              'Send',
+              onPressed: () {
+                SendSheet().mainBottomSheet(context);
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -153,9 +169,15 @@ class Actions extends StatelessWidget {
 }
 
 class ActionButton extends StatelessWidget {
-  const ActionButton(this.action, {Key key}) : super(key: key);
+  const ActionButton(
+    this.action, {
+    Key key,
+    @required onPressed,
+  })  : _onPressed = onPressed,
+        super(key: key);
 
   final String action;
+  final VoidCallback _onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -171,9 +193,7 @@ class ActionButton extends StatelessWidget {
         color: Colors.yellow,
         child: Text(action, maxLines: 1),
         splashColor: Colors.transparent,
-        onPressed: () {
-          // TODO
-        },
+        onPressed: _onPressed,
       ),
     );
   }
