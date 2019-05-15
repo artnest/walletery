@@ -13,15 +13,10 @@ class WalleteryApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/home',
+      initialRoute: '/',
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/':
-            return NoTransitionRoute(
-              builder: (_) => HomePage(),
-              settings: settings,
-            );
-          case '/home':
             return NoTransitionRoute(
               builder: (_) => HomePage(),
               settings: settings,

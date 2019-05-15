@@ -106,7 +106,7 @@ class TransactionsTitle extends StatelessWidget {
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.fromLTRB(30, 20, 26, 0),
       child: Text(
-        'TRANSACTIONS',
+        'Transactions'.toUpperCase(),
         style: TextStyle(color: Colors.white54),
       ),
     );

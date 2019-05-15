@@ -39,7 +39,7 @@ class Sheets {
       return Navigator.pushAndRemoveUntil<T>(
         context,
         route,
-        RouteUtils.withNameLike('/home'),
+        RouteUtils.withNameLike('/'),
       );
     }
     return Navigator.push<T>(context, route);
