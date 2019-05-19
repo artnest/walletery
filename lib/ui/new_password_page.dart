@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/PasswordTextField.dart';
+
 class NewPasswordPage extends StatefulWidget {
   @override
   _NewPasswordPageState createState() => _NewPasswordPageState();
@@ -46,30 +48,31 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
           ),
           Container(
             margin: EdgeInsets.all(16),
-            child: TextField(
+            child: PasswordTextField(
               controller: _passwordController,
-              obscureText: true,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white30,
-                labelText: 'Password',
-                labelStyle: TextStyle(color: Colors.yellow),
-              ),
+              onSubmitted: (_) => _addEntry(),
             ),
           )
         ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.save),
-        onPressed: () {
-          Navigator.of(context).pop([
-            _serviceNameController.value,
-            _emailController.value,
-            _passwordController.value
-          ]);
-        },
+        onPressed: _addEntry,
       ),
     );
+  }
+
+  void _addEntry() {
+    if (_serviceNameController.text.isNotEmpty &&
+        _emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      // BlocProvider.provideBloc(context).addCategory(_controller.text);
+      // Navigator.of(context).pop();
+      Navigator.of(context).pop([
+        _serviceNameController.value,
+        _emailController.value,
+        _passwordController.value
+      ]);
+    }
   }
 }
