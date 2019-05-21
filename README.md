@@ -1,3 +1,3 @@
 # walletery
 
-Sample wallet application with the use of PointyCastle API.
+Sample wallet application with the usage of PointyCastle API.
