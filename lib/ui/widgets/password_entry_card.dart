@@ -37,7 +37,7 @@ class EntryCard extends StatelessWidget {
                 /*showDialog(
                   context: context,
                   barrierDismissible: false,
-                  builder: (ctx) => TodoEditDialog(entry: entry),
+                  builder: (ctx) => PasswordEntryEditDialog(entry: entry),
                 );*/
               },
             ),

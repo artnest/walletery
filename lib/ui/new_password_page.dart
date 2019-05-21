@@ -66,7 +66,11 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
     if (_serviceNameController.text.isNotEmpty &&
         _emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty) {
-      // BlocProvider.provideBloc(context).addCategory(_controller.text);
+      /*BlocProvider.provideBloc(context).createEntry(
+        _serviceNameController.text,
+        _emailController.text,
+        _passwordController.text,
+      );*/
       // Navigator.of(context).pop();
       Navigator.of(context).pop([
         _serviceNameController.value,
