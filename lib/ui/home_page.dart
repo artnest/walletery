@@ -33,16 +33,16 @@ class _HomePageState extends State<HomePage> {
     return ListView(
       padding: EdgeInsets.fromLTRB(0, 5, 0, 15),
       children: <Widget>[
-        TransactionCard('12,794 BAN', isSent: false),
-        TransactionCard('12,794 BAN', isSent: true),
-        TransactionCard('12,794 BAN', isSent: false),
-        TransactionCard('12,794 BAN', isSent: false),
-        TransactionCard('12,794 BAN', isSent: true),
-        TransactionCard('12,794 BAN', isSent: true),
-        TransactionCard('12,794 BAN', isSent: false),
-        TransactionCard('12,794 BAN', isSent: false),
-        TransactionCard('12,794 BAN', isSent: true),
-        TransactionCard('12,794 BAN', isSent: false),
+        TransactionCard('2,056 BAN', isSent: false),
+        TransactionCard('742 BAN', isSent: true),
+        TransactionCard('3,394 BAN', isSent: false),
+        TransactionCard('1,563 BAN', isSent: false),
+        TransactionCard('10,000 BAN', isSent: true),
+        TransactionCard('1,005 BAN', isSent: true),
+        TransactionCard('545 BAN', isSent: false),
+        TransactionCard('4,356 BAN', isSent: false),
+        TransactionCard('2,930 BAN', isSent: true),
+        TransactionCard('5,705 BAN', isSent: false),
       ],
     );
   }
