@@ -27,7 +27,7 @@ class PasswordsPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).pushNamed('/passwords/new_password');
+          Navigator.of(context).pushNamed('/passwords/add_password');
         },
       ),
     );
