@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import './ui/home_page.dart';
 import './ui/util/routes.dart';
 import './ui/passwords_page.dart';
-import './ui/new_password_page.dart';
+import './ui/add_password_page.dart';
 
 void main() => runApp(WalleteryApp());
 
@@ -30,13 +30,15 @@ class WalleteryApp extends StatelessWidget {
               settings: settings,
             );
           case '/passwords':
-            return MaterialPageRoute(builder: (BuildContext context) {
-              return PasswordsPage();
-            });
-          case '/passwords/new_password':
-            return MaterialPageRoute(builder: (BuildContext context) {
-              return NewPasswordPage();
-            });
+            return MaterialPageRoute(
+              builder: (_) => PasswordsPage(),
+              settings: settings,
+            );
+          case '/passwords/add_password':
+            return MaterialPageRoute(
+              builder: (_) => AddPasswordPage(),
+              settings: settings,
+            );
         }
       },
     );

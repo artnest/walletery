@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/PasswordTextField.dart';
+import 'widgets/password_text_field.dart';
 
-class NewPasswordPage extends StatefulWidget {
+class AddPasswordPage extends StatefulWidget {
   @override
-  _NewPasswordPageState createState() => _NewPasswordPageState();
+  _AddPasswordPageState createState() => _AddPasswordPageState();
 }
 
-class _NewPasswordPageState extends State<NewPasswordPage> {
+class _AddPasswordPageState extends State<AddPasswordPage> {
   final _serviceNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -16,7 +16,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Password'),
+        title: Text('Add Password'),
       ),
       body: Column(
         children: <Widget>[
