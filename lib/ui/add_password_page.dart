@@ -44,6 +44,7 @@ class _AddPasswordPageState extends State<AddPasswordPage> {
                 labelText: 'E-mail',
                 labelStyle: TextStyle(color: Colors.yellow),
               ),
+              keyboardType: TextInputType.emailAddress,
             ),
           ),
           Container(
@@ -60,6 +61,14 @@ class _AddPasswordPageState extends State<AddPasswordPage> {
         onPressed: _addEntry,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _serviceNameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   void _addEntry() {
